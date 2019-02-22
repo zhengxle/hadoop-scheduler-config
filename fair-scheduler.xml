@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<allocations>
+    <defaultQueueSchedulingPolicy>fair</defaultQueueSchedulingPolicy>
+    <queue name="root">
+       <aclSubmitApps> </aclSubmitApps> 
+       <aclAdministerApps> </aclAdministerApps> 
+       <queue name="azkaban">
+         <weight>20</weight>
+         <schedulingPolicy>fair</schedulingPolicy>
+         <minResources>1024 mb, 1 vcores</minResources>
+         <maxResources>8192 mb, 2 vcores</maxResources>
+         <maxRunningApps>1000</maxRunningApps>
+         <minSharePreemptionTimeout>600</minSharePreemptionTimeout> 
+         <schedulingPolicy>fair</schedulingPolicy>
+         <aclSubmitApps>heros</aclSubmitApps>
+         <aclAdministerApps>heros</aclAdministerApps>
+         <userMaxJobsDefault>500</userMaxJobsDefault>
+         <defaultMinSharePreemptionTimeout>600</defaultMinSharePreemptionTimeout>
+         <defaultPoolSchedulingMode>fair</defaultPoolSchedulingMode>
+         <fairSharePreemptionTimeout>3600</fairSharePreemptionTimeout>
+       </queue>
+       <queue name="zeepelin">
+         <weight>70</weight>
+         <schedulingPolicy>fair</schedulingPolicy>
+         <minResources>1024 mb, 1 vcores</minResources>
+         <maxResources>10240 mb, 2 vcores</maxResources>
+         <maxRunningApps>1000</maxRunningApps>
+         <minSharePreemptionTimeout>600</minSharePreemptionTimeout> 
+         <aclSubmitApps>appweb</aclSubmitApps>
+         <aclAdministerApps>appweb</aclAdministerApps>
+         <userMaxJobsDefault>500</userMaxJobsDefault>
+         <defaultMinSharePreemptionTimeout>600</defaultMinSharePreemptionTimeout>
+         <defaultPoolSchedulingMode>fair</defaultPoolSchedulingMode>
+         <fairSharePreemptionTimeout>1800</fairSharePreemptionTimeout>
+       </queue>
+       <queue name="default">
+         <weight>10</weight>
+         <schedulingPolicy>fifo</schedulingPolicy>
+         <minResources>1024 mb, 1 vcores</minResources>
+         <maxResources>10240 mb, 1 vcores</maxResources>
+         <maxRunningApps>100</maxRunningApps>
+         <minSharePreemptionTimeout>120</minSharePreemptionTimeout> 
+         <aclSubmitApps>*</aclSubmitApps>
+         <aclAdministerApps>*</aclAdministerApps>
+         <userMaxJobsDefault>50</userMaxJobsDefault>
+         <defaultMinSharePreemptionTimeout>60</defaultMinSharePreemptionTimeout>
+         <defaultPoolSchedulingMode>fifo</defaultPoolSchedulingMode>
+         <fairSharePreemptionTimeout>600</fairSharePreemptionTimeout>
+       </queue>
+      <queuePlacementPolicy>
+          <rule name="primaryGroup" create="false" />
+          <rule name="secondaryGroupExistingQueue" create="false" />
+          <rule name="default" />
+      </queuePlacementPolicy>
+    </queue> <!--root -->
+</allocations>
